@@ -1,10 +1,12 @@
+<!-- https://qiita.com/_P0cChi_/items/ebf8fbf035b36218a37e -->
+
 # test-vuex
 
 > A Vue.js project
 
 ## Build Setup
 
-``` bash
+```bash
 # install dependencies
 npm install
 
