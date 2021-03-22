@@ -4,7 +4,7 @@
     <HeadComp></HeadComp>
     <TextareaComp></TextareaComp>
     <StringComp></StringComp>
-    <button @click="buttonAction">{{ button }}</button>
+    <button v-on:click="buttonAction">{{ button }}</button>
   </div>
 </template>
 
