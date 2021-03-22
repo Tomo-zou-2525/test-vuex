@@ -1,18 +1,19 @@
 <template>
-  <div>Formページ</div>
+  <p>
+    {{ string }}
+  </p>
 </template>
 
 <script>
 export default {
-  name: "form",
+  name: "stringComp",
   data() {
     return {
-      msg: "Welcome to Your Vue.js App",
+      string: "入力された感想をここに出す"
     };
-  },
+  }
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-</style>
+<style scoped></style>

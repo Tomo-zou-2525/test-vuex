@@ -1,18 +1,26 @@
 <template>
-  <div>Formページ</div>
+  <div>
+    <p class="error">
+      {{ error }}
+    </p>
+    <textarea></textarea>
+  </div>
 </template>
 
 <script>
 export default {
-  name: "form",
+  name: "textareaComp",
   data() {
     return {
-      msg: "Welcome to Your Vue.js App",
+      error: "入力は必須です"
     };
-  },
+  }
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.error {
+  color: red;
+}
 </style>
