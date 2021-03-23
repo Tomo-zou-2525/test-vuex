@@ -14,15 +14,15 @@ import TextareaComp from "@/components/modules/TextareaComp";
 import StringComp from "@/components/modules/StringComp";
 //mapActins→VuexのActionを使うためのもの
 import { mapActions, mapGetters } from "vuex";
+
 export default {
   name: "form",
-  data() {
-    return {
-      button: "確認"
-    };
-  },
+
   methods: mapActions("Form", {
     buttonAction: "buttonAction"
+  }),
+  computed: mapGetters("Form", {
+    button: "getButton"
   }),
   components: {
     HeadComp,

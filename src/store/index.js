@@ -7,13 +7,21 @@ Vue.use(Vuex);
 
 const Form = {
   namespaced: true,
-  state: {},
+  state: {
+    //Formボタンの文字データを保存
+    button: ["確認", "送信"]
+  },
   mutations: {},
   actions: {
     buttonAction({ commit, state, rootState }) {
       console.log("buttonAction");
       //rootへのアクセス
       commit("setStepCount", null, { root: true });
+    }
+  },
+  getters: {
+    getButton(state, getters, rootState) {
+      return state.button[rootState.stepCount];
     }
   }
 };

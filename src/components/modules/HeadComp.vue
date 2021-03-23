@@ -8,6 +8,7 @@ import { mapGetters } from "vuex";
 export default {
   name: "headComp",
   //算術プロパティ mapGetters
+
   computed: mapGetters({
     title: "getTitle"
   })
