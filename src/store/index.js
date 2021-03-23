@@ -1,3 +1,4 @@
+import { config } from "process";
 import Vue from "vue";
 import Vuex from "vuex";
 import router from "../router";
@@ -11,12 +12,37 @@ const Form = {
   actions: {
     buttonAction({ commit, state, rootState }) {
       console.log("buttonAction");
+      //rootへのアクセス
+      commit("setStepCount", null, { root: true });
+    }
+  }
+};
+
+const Head = {
+  state: {
+    title: ["感想を入力", "確認画面", "送信完了"]
+  },
+  mutations: {},
+  actions: {},
+  getters: {
+    getTitle(state, getters, rootState) {
+      return state.title[rootState.stepCount];
     }
   }
 };
 
 export default new Vuex.Store({
+  state: {
+    stateCount: 0
+  },
+  mutations: {
+    setStepCount(state) {
+      console.log("rootsetStepCount");
+      state.stepCount++;
+    }
+  },
   modules: {
-    Form
+    Form,
+    Head
   }
 });

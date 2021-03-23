@@ -3,13 +3,14 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 export default {
   name: "headComp",
-  data() {
-    return {
-      title: "感想を入力"
-    };
-  }
+  //算術プロパティ mapGetters
+  computed: mapGetters({
+    title: "getTitle"
+  })
 };
 </script>
 
