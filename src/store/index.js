@@ -1,4 +1,3 @@
-import { config } from "process";
 import Vue from "vue";
 import Vuex from "vuex";
 import router from "../router";
@@ -9,19 +8,25 @@ const Form = {
   namespaced: true,
   state: {
     //Formボタンの文字データを保存
-    button: ["確認", "送信"]
+    button: ["確認", "送信"],
+    component: ["TextareaComp", "StringComp"]
   },
   mutations: {},
   actions: {
     buttonAction({ commit, state, rootState }) {
       console.log("buttonAction");
       //rootへのアクセス
-      commit("setStepCount", null, { root: true });
+      if (rootState.errorFlag) {
+        commit("setStepCount", null, { root: true });
+      }
     }
   },
   getters: {
     getButton(state, getters, rootState) {
       return state.button[rootState.stepCount];
+    },
+    getComponent(state, getters, rootState) {
+      return state.component[rootState.stepCount];
     }
   }
 };
@@ -54,9 +59,18 @@ const Textarea = {
   }
 };
 
+const String = {
+  namespaced: true, //名前空間を有効にする
+  getters: {
+    getString(state, getters, rootState) {
+      return rootState.impression;
+    }
+  }
+};
+
 export default new Vuex.Store({
   state: {
-    stateCount: 0,
+    stepCount: 0,
     impression: "",
     errorFlag: false //trueなら通過
   },
@@ -77,6 +91,7 @@ export default new Vuex.Store({
   modules: {
     Form,
     Head,
-    Textarea
+    Textarea,
+    String
   }
 });
